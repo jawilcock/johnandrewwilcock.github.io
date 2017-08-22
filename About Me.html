@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Theme Simply Me</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="website.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+   <style>
+	.bg-1 { 
+       background-color: #0099ff; /* Green */
+        color: #ffffff;
+  	}
+  </style>
+
+</head>
+	<body>
+
+		<ul>
+	  <li><a href="Home.html">Home</a></li>
+	  <li><a href="Project List.html">Project List</a></li>
+	  <li><a class="active" href="#home">About Me</a></li>
+		</ul>
+
+		<div class="bg-1">
+			<div class ="container text-center">
+			  <h3>About Me</h3>
+			  <img src="musse.png" alt="musse" height="60" width="60">
+			  <h3>Who is Musseduch? <br></h3>
+			</div>
+		</div>
+
+		<div id="twitch-embed"></div>
+			<script src="https://embed.twitch.tv/embed/v1.js"></script>
+
+			    <!-- Create a Twitch.Embed object that will render within the "twitch-embed" root element. -->
+			    <script type="text/javascript">
+			      new Twitch.Embed("twitch-embed", {
+			        width: 940,
+			        height: 480,
+			        channel: "musseduch"
+			      });
+			    </script>
+
+	</body>
+</html>
