@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<body>
+
+		  Number to count up to:<br>
+		  <input type="text" name="Name" id="temp_num">
+		  <br>
+		  Word for divisions of 3:<br>
+		  <input type="text" name="age" id="temp_three">
+		  <br>
+		  Word for divisions of 5:<br>
+		  <input type="text" name="job" id="temp_five">
+		  <br><br>
+		  <button onclick="fizzbuzz(temp_num.value,temp_three.value,temp_five.value)">Enter</button>
+		  <br>
+
+		<p id="loop"></p>
+
+		<script>
+		function fizzbuzz(count,firstword,secondword){
+
+			var text = ""
+			for(var i = 0; i<count;i++){
+
+				if(i%3==0 && i%5==0){text += firstword+secondword + "<br>"}
+				else if(i%3==0){text += firstword + "<br>"}
+				else if(i%5==0){text += secondword+"<br>"}
+				else{text += i + "<br>"}
+			}
+			document.getElementById("loop").innerHTML = text;
+		}
+		
+		</script>
+
+
+	</body>
+</html>

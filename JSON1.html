@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+    <header>
+    </header>
+    <section>
+    </section>
+</html>
+
+<script>
+
+        var header = document.querySelector('header');
+        var section = document.querySelector('section');
+
+        var requestURL = "https://raw.githubusercontent.com/ewomackQA/JSONDataRepo/master/example.json";
+        var request = new XMLHttpRequest();
+        request.open("GET", requestURL);
+        request.responseType = 'json';
+        request.send();
+
+        request.onload = function() {
+            var superHeroes = request.response;
+            makeHeader(superHeroes);
+            makeHeroList(superHeroes);
+        }
+        
+        function makeHeader(jsonObj) {
+            var myH1 = document.createElement("h1");
+            myH1.textContent = jsonObj['squadName'];
+            header.appendChild(myH1);
+
+            var para1 = document.createElement('p');
+            para1.textContent = 'Hometown: ' + jsonObj['homeTown'] + ' // Formed: ' + jsonObj['formed'] + ' // Secret Base: ' +jsonObj['secretBase'];
+            header.appendChild(para1);
+
+            var para2 = document.createElement('p');
+            para2.textContent = 'Currently Active: ' + jsonObj['active'];
+            header.appendChild(para2);
+        }
+
+        function makeHeroList(jsonObj){
+            var heroes = jsonObj['members'];
+            for(i=0;i<heroes.length;i++)
+            {
+                var myH2 = document.createElement("h2");
+                myH2.textContent = heroes[i].name;
+                section.appendChild(myH2);
+
+                var para1 = document.createElement('p');
+                para1.textContent = 'Secret Identity: ' + heroes[i].secretIdentity;
+                var para2 = document.createElement('p');
+                para2.textContent = 'Age: ' + heroes[i].age;
+                var para3 = document.createElement('p');
+                para3.textContent = 'Superpowers:';
+
+                section.appendChild(para1);
+                section.appendChild(para2);
+                section.appendChild(para3);
+
+                var superPowers = heroes[i].powers;
+                for (var j = 0; j < superPowers.length; j++) {
+                    var listItem = document.createElement('li');
+                    listItem.textContent = superPowers[j];
+                    section.appendChild(listItem);
+                }
+            }
+        }
+
+</script>

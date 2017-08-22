@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+    <body>
+            String to check:<br>
+            <input type="text" name="String" id="temp_string">
+            <button onclick="triples(temp_string.value)">Enter</button>
+            
+            <p id="num"></p>
+
+            <script>
+
+                function triples(){
+
+                    var string = "abcXXXabc"
+                    var text = ""
+
+                    var indices = 0
+                    for(var i=0;i<string.length-2;i++){
+                        if ((string.charAt(i) === string.charAt(i + 1)) && (string.charAt(i) === string.charAt(i + 2)))
+                        indices++
+                    }
+                    text = indices;
+                    document.getElementById("num").innerHTML = text;
+                }
+
+                
+            </script>
+        
+    </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<h3>Functions and Events</h3>
+
+		<script>
+			//javascript
+
+			//function1
+			function squaredNumber(p1){
+				return p1*p1;
+			}
+			var x = squaredNumber(4); //16
+			document.write(x + " ")
+
+			//function2
+			function sum(p1,p2,p3){
+				return p1+p2+p3;
+			}
+			var y = sum(3,4,5); //12
+			document.write(y + "\n")
+
+			//Person object
+			function printPerson(name,age,job){
+				var myObject = maker(name,age,job);
+				document.getElementById("user_name").innerHTML = ("Name: " + myObject.name);
+				document.getElementById("user_age").innerHTML = ("Age: " +myObject.age);
+				document.getElementById("user_job").innerHTML = ("Job: " +myObject.job);
+
+			}
+
+			function maker(name,age,job)
+			{
+			var it = {};
+			it.name = name;
+			it.age = age;
+			it.job = job;
+			return it;
+			}
+			
+			function myFunction() {
+    		document.getElementById("Hello").innerHTML = "Hello World";
+    		}
+
+		</script>
+
+		<br>
+		<br>
+
+			<button onclick="myFunction()">Click me</button>
+			<p id="Hello"></p>
+
+		<br>
+
+		  First name:<br>
+		  <input type="text" name="Name" id="temp_name">
+		  <br>
+		  Age:<br>
+		  <input type="text" name="age" id="temp_age">
+		  <br>Job:<br>
+		  <input type="text" name="job" id="temp_job">
+		  <br><br>
+		  <button onclick="printPerson(temp_name.value,temp_age.value,temp_job.value)">Submit Person</button>
+		  <br>
+
+		<p id="user_name"></p>
+		<p id="user_age"></p>
+		<p id="user_job"></p>
+
+	</body>
+</html>

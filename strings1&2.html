@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<body>
+
+	<p>Click the button to convert the string to uppercase letters.</p>
+
+	<button onclick="myFunction()">Do string work</button>
+	<input type="text" name="string" id="temp_string">
+	<button onclick="addToArray(temp_string.value)">Add</button>
+	<button onclick="removeFromArray()">Remove last item</button>
+
+	<p id="string"></p>
+	<p id="concatenate"></p>
+	<p id="array"></p>
+
+		<script>
+
+		var str = " He said 'My Name is Elloooott' "
+		document.getElementById("string").innerHTML = str
+		var myArray = ['pharah','mei','reinhardt']
+		document.getElementById("array").innerHTML = myArray
+
+		function myFunction() {
+		    var res = str.toUpperCase()
+		    document.getElementById("string").innerHTML = res
+		    var x = "6" + 9
+		    document.getElementById("concatenate").innerHTML = x
+		}
+
+		function addToArray(str){
+			myArray.push(str)
+			document.getElementById("array").innerHTML = myArray
+		}
+
+		function removeFromArray(){
+			myArray.pop()
+			document.getElementById("array").innerHTML = myArray
+		}
+
+		</script>
+	</body>
+</html>

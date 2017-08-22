@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    </head>
+    <body>
+        <input type="button" onclick="createPara()" value="Create Paragraph" />
+        <input type="button" onclick="changePara()" value="Change Paragraph" />
+        <input type="button" onclick="deletePara()" value="Delete Paragraph" />
+
+        <div>
+            <label>Enter Paragraph Text</label>
+                <input type = "text" id = "paraText"/>
+        </div>
+
+        <div id="div1"></div>
+
+        <script>
+                function createPara() {
+                    var para = document.createElement("p");
+                    para.setAttribute("id", "1");
+                    document.getElementById("div1").appendChild(para);
+                    console.log("Paragraph Created");
+                    document.getElementById("1").innerHTML = document.getElementById("paraText").value;
+
+                }
+        
+                function changePara() {
+                    document.getElementById("1").innerHTML = document.getElementById("paraText").value;
+                }
+        
+                function deletePara() {
+                    document.getElementById("1").remove();
+                }
+        </script>
+
+    </body>
+    
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<body>
+
+	<p>Click the button to convert the string to uppercase letters.</p>
+
+	<button onclick="myFunction()">Do string things</button>
+
+	<p id="string"></p>
+	<p id="concatenate"></p>
+
+		<script>
+		var str = " He said 'My Name is Elloooott' ";
+		document.getElementById("string").innerHTML = str;
+
+		function myFunction() {
+		    var res = str.toUpperCase();
+		    document.getElementById("string").innerHTML = res;
+		}
+		</script>
+
+	</body>
+</html>
