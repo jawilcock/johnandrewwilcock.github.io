@@ -1,0 +1,35 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <label>Please enter the royal highness you are looking for:</label>
+        <br></br>
+        <input type = "text" id = "textBox"> 
+        <input type="button" onclick="search()" value="Search" />
+        <p id = "nm"> Name: </p>
+        <p id = "cty"> City: </p>
+        <p id = "hse"> House: </p>
+        <p id = "yrs"> Years: </p>
+    </body>
+</html>
+
+<script>
+    var requestURL = "https://raw.githubusercontent.com/ewomackQA/JSONDataRepo/master/kings.json";
+        var request = new XMLHttpRequest()
+        request.open("GET", requestURL)
+        request.responseType = 'json'
+        request.send()
+
+    function search() {
+        var kings = request.response;
+
+        for (var i=0; i < kings.length; i++){
+            if (document.getElementById("textBox").value == kings[i].nm){
+            document.getElementById("nm").textContent = "Name: " +  kings[i].nm
+            document.getElementById("cty").textContent = "City: " + kings[i].cty
+            document.getElementById("hse").textContent = "House: " + kings[i].hse
+            document.getElementById("yrs").textContent = "Years: " + kings[i].yrs
+            }
+        }   
+    }
+</script>

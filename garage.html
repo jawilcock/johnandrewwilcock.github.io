@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Garage</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="website.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+            <style>
+            .bg-1 { 
+                background-color: #ccffff;
+                color: #000000;
+            }
+        </style>
+    </head>
+    <body>
+            <ul>
+                <li><a class="active" href="#home">Home</a></li>
+                <li><a href="Project List.html">Project List</a></li>
+                <li><a href="About Me.html">About Me</a></li>
+            </ul>
+              
+
+            <h2>Garage</h2>
+            <div class="bg-1">
+            <br>
+                <label> Select The Make Of Vehicle:</label>
+                <select id="make" onclick="chooseModel()">
+                    <option selected="">Please Select</option>
+                    <option value="Ford">Ford</option>
+                    <option value="Volkswagen">Volkswagen</option> 
+                </select>
+            <br>
+            <br>
+    
+            <label>Select The Model:</label>
+                <select id="model">
+                </select>   
+            <br>
+            <br>
+    
+            <label>Reg Number:</label>
+                <input type="text" id="reg">
+            <br>
+            <br>
+    
+            <label>Number of Faults:</label>
+                <input type="text" id="faults">
+                <input type="button" onclick="addCar()" value="Submit" />
+            <br>
+            <br>
+        </div>
+    
+            <label>Current Cars in Garage:</label>
+            <br>
+                <select id="garage" size=10>
+                </select>
+            <br>
+            <br>
+            <input type="button" onclick="removeCar()" value= "Remove All Cars"/>
+        
+
+    </body>
+</html>
+<script>
+    function chooseModel() {
+        let selectedMake = document.getElementById("make").value;
+        let selectModel = document.getElementById("model");
+        let option =document.createElement("option");
+        let option2  =document.createElement("option");
+        clearModels(selectModel);
+
+        if (selectedMake == "Ford"){
+            option.text = option.value = "Focus";
+            selectModel.add(option);
+            option2.text = option2.value = "Ka";
+            selectModel.add(option2);
+        }
+
+        else if (selectedMake == "Volkswagen"){
+            option.text = option.value = "Golf";
+            selectModel.add(option);
+            option2.text = option2.value = "Polo";
+            selectModel.add(option2);
+        }   
+    }
+
+    function clearModels(selectBox) {
+        for (let i = selectBox.options.length-1; i>=0; i--){
+            selectBox.remove(i);
+        }
+    }
+
+    let carArray = [];
+
+    function addCar(){
+        let make = document.getElementById("make").value;
+        let model =document.getElementById("model").value;
+        let reg =document.getElementById("reg").value;
+        let faults =document.getElementById("faults").value;
+
+        carObject = {
+            make: make, 
+            model: model, 
+            reg: reg, 
+            faults: faults
+        };
+        carArray.push(carObject);
+        printCar();
+        displayGarage();
+    }
+
+    function printCar(){
+      for (let i = 0; i < carArray.length; i++) {
+        console.log(carArray[i]);     
+      } 
+    }
+
+    function displayGarage(){
+        let listBox = document.getElementById("garage");
+        for (i = 0; i < carArray.length; i++){
+            let optionCars = document.createElement("option")
+            optionCars.text = carArray[i].make +", "+carArray[i].model+", " + carArray[i].reg+", " + carArray[i].faults;
+                listBox.add(optionCars);
+        }
+        
+    }
+
+</script>

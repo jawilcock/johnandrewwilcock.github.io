@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+        
+        <body>
+                <h2>Knight Tour to anywhere that is positive towards (4,5) and keeps x less than y</h2>
+
+                <label>Destination:</label>
+                <input type="text" id="destination">
+                <input type="button" onclick="calculateRoute(destination.value)" value="Calculate Route" />
+            <br>
+        </body>
+        
+</html>
+
+<script>
+        
+        function calculateRoute(destination){
+            let coordinate = destination.split(",")
+
+            let moves =[[-1,-2],[1,-2],[-1,2],[1,2],[-2,-1],[2,-1],[-2,1],[2,1]]
+            let origin = [0,0]
+            let currentPosition = origin
+            let moveCount = 0
+            
+            do{
+                //if x is smaller than y
+                if(coordinate[0] < coordinate[1]){
+
+                    if (coordinate[0] > 0 && coordinate[1] > 0){
+                        
+                        for(let i = 0; i < moves.length;i++){
+                            
+                            let tempMove = moves[i]
+
+                            if((coordinate[0] - origin[0] === tempMove[0]) && (coordinate[1] - origin[1] === tempMove[1])){
+                                
+                                origin[0] += tempMove[0]
+                                origin[1] += tempMove[1]
+                                moveCount = moveCount + 1
+                                console.log(origin)
+                                break
+                            }
+
+                            else if(tempMove[0] > 0 && tempMove[1] > 1){
+                                origin[0] += tempMove[0]
+                                origin[1] += tempMove[1]
+                                moveCount = moveCount + 1
+                                console.log(origin)
+                            }
+
+                            else if ((coordinate[0] === origin[0]) && (coordinate[1] === origin[1])){
+                                break
+                            }
+
+                        }
+                    }
+                    
+                }
+            
+            }
+            while((origin[0] != destination[0]) && (origin[1] != destination[1]))
+            
+        }
+</script>
