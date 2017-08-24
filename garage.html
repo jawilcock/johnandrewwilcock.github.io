@@ -60,8 +60,8 @@
                 </select>
             <br>
             <br>
-            <input type="button" onclick="removeCar()" value= "Remove All Cars"/>
-        
+            <input type="button" onclick="calculateBill()" value= "Calculate Bill"/>            
+            <input type="button" onclick="removeCars()" value= "Remove All Cars"/>
 
     </body>
 </html>
@@ -101,12 +101,14 @@
         let model =document.getElementById("model").value;
         let reg =document.getElementById("reg").value;
         let faults =document.getElementById("faults").value;
+        let bill = 0;
 
         carObject = {
             make: make, 
             model: model, 
             reg: reg, 
-            faults: faults
+            faults: faults,
+            bill: bill
         };
         carArray.push(carObject);
         printCar();
@@ -119,11 +121,36 @@
       } 
     }
 
+    let listBox = document.getElementById("garage");
+
+    function removeCars(){
+        
+        carArray = [];
+        console.log(carArray)
+    }
+
+    function calculateBill(){
+        let selectedCar = listBox.options[listBox.selectedIndex].text;
+        let splitstring = selectedCar.split(",")
+        let selectedCarReg = splitstring[2]
+        let carBill = splitstring[3] * Math.floor(Math.random() * 16) + 1  
+        
+        for (i = 0; i < carArray.length; i++){
+            if(selectedCarReg = carArray[i].reg){
+                carArray[i].reg = selectedCarReg
+                carArray[i].bill = carBill
+            }
+        }
+        
+        listBox.innerHTML = ""
+        displayGarage()
+    }
+
     function displayGarage(){
-        let listBox = document.getElementById("garage");
+        
         for (i = 0; i < carArray.length; i++){
             let optionCars = document.createElement("option")
-            optionCars.text = carArray[i].make +", "+carArray[i].model+", " + carArray[i].reg+", " + carArray[i].faults;
+            optionCars.text = carArray[i].make +", "+carArray[i].model+", " + carArray[i].reg+", " + carArray[i].faults+", " + carArray[i].bill;
                 listBox.add(optionCars);
         }
         
