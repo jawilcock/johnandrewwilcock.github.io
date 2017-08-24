@@ -1,41 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-
 	<head>
-
-	  <title>Musseduch</title>
-	  <meta charset="utf-8">
-	  <meta name="viewport" content="width=device-width, initial-scale=1">
-	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	  <link rel="stylesheet" href="website.css">
-	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-	   <style>
+		<!-- Theme Made By www.w3schools.com - No Copyright -->
+		<title>John's Website</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<style>
+		body {
+				font: 20px Montserrat, sans-serif;
+				line-height: 1.8;
+				color: #f5f6f7;
+		}
+		p {font-size: 16px;}
+		.margin {margin-bottom: 10px;}
 		.bg-1 { 
-	       background-color: #0099ff;
-	        color: #ffffff;
-	  	}
-	  </style>
-
+				background-color: #ff00ff;
+				color: #ffffff;
+		}
+		.bg-2 { 
+				background-color: #474e5d;
+				color: #ffffff;
+		}
+		.bg-3 { 
+				background-color: #ffffff;
+				color: #555555;
+		}
+		.bg-4 { 
+				background-color: #2f2f2f;
+				color: #fff;
+		}
+		.container-fluid {
+				padding-top: 70px;
+				padding-bottom: 70px;
+		}
+		.navbar {
+				padding-top: 15px;
+				padding-bottom: 15px;
+				border: 0;
+				border-radius: 0;
+				margin-bottom: 0;
+				font-size: 12px;
+				letter-spacing: 5px;
+		}
+		.navbar-nav  li a:hover {
+				color: #000000 !important;
+		}
+		</style>
 	</head>
 
 	<body>
 
-		<ul>
-	  <li><a class="active" href="#home">Home</a></li>
-	  <li><a href="Project List.html">Project List</a></li>
-	  <li><a href="About Me.html">About Me</a></li>
-		</ul>
-
-		<div class="bg-1">
-			<div class ="container text-center">
-			  <h3>Home</h3>
-			  <img src="musse.png" alt="musse" height="60" width="60">
-			  <h3>Welcome to the home page. <br> Feel free to navigate around and have a jolly good time.</h3>
+	<!-- Navbar -->
+	<nav class="navbar navbar-default">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>                        
+				</button>
+				<a class="navbar-brand" href="#">John Wilcock</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a class="active" href="#home">Home</a></li>
+					<li><a href="Project List.html">Project List</a></li>
+					<li><a href="About Me.html">About Me</a></li>
+				</ul>
 			</div>
 		</div>
+	</nav>
+
+	<!-- First Container -->
+	<div class="container-fluid bg-1 text-center">
+		<h2 class="margin">Home Page</h2>
+		<img src="profilephoto.jpg" class="img-responsive img-circle margin" style="display:inline" alt="Bird" width="150" height="150">
+		<h3>Also available in real life.</h3>
+	</div>
+
+	<!-- Second Container -->
+	<div class="container-fluid bg-2 text-center">
+		<h3 class="margin">What will you find here?</h3>
+		<p>This website features projects that I have worked on using HTML5, CSS and Javascript.
+		</p><p>You can use the navigation bar above to find them on the project list, or visit the 'About me' page to 
+			read more.</p>
+		
+	</div>
+
+	<!-- Third Container (Grid) -->
+	<div class="container-fluid bg-3 text-center">    
+		<h3 class="margin">Past Tech Experience</h3><br>
+			<div class="col-sm-4">
+				<img src="csharp.jpg" class="img-responsive margin" width="250" height="250" alt="Image">
+			</div>
+			<div class="col-sm-4"> 
+				<img src="java.png" class="img-responsive margin" width="250" height="250" alt="Image">
+			</div>
+			<div class="col-sm-4"> 
+					<img src="monogame.png" class="img-responsive margin" width="225" height="225" alt="Image">
+			</div>
+	</div>
+
+	<!-- Footer -->
+	<footer class="container-fluid bg-4 text-center">
+		<p><a href="http://consulting.qa.com/">QA Consulting</a></p> 
+	</footer>
 
 	</body>
-
 </html>

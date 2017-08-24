@@ -1,46 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Bootstrap Theme Simply Me</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="website.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<head>
+		<!-- Theme Made By www.w3schools.com - No Copyright -->
+		<title>John's Website</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<style>
+		body {
+				font: 20px Montserrat, sans-serif;
+				line-height: 1.8;
+				color: #f5f6f7;
+		}
+		p {font-size: 16px;}
+		.margin {margin-bottom: 10px;}
+		.bg-1 { 
+				background-color:  #ffff00;
+				color: #000000;
+		}
+		.bg-2 { 
+				margin-top: 0;
+				background-color: #474e5d;
+				color: #ffffff;
+		}
+		.bg-3 { 
+				background-color: #ffffff;
+				color: #555555;
+		}
+		.bg-4 { 
+				background-color: #2f2f2f;
+				color: #fff;
+		}
+		.container-fluid {
+				padding-top: 70px;
+				padding-bottom: 70px;
+		}
+		.navbar {
+				padding-top: 15px;
+				padding-bottom: 15px;
+				border: 0;
+				border-radius: 0;
+				margin-bottom: 0;
+				font-size: 12px;
+				letter-spacing: 5px;
+		}
+		.navbar-nav  li a:hover {
+				color: #000000 !important;
+		}
+		</style>
+	</head>
 
-   <style>
-	.bg-1 { 
-       background-color: #0099ff; /* Green */
-        color: #ffffff;
-  	}
-  	.bg-2 { 
-      background-color: #474e5d; /* Dark Blue */
-      color: #ffffff;
-  	}
-  </style>
-
-</head>
 	<body>
 
-		<ul>
-	  <li><a href="index.html">Home</a></li>
-	  <li><a class="active" href="#home">Project List</a></li>
-	  <li><a href="About Me.html">About Me</a></li>
-		</ul>
-
-		<div class="bg-1">
-			<div class ="container text-center">
-			  <h3>Project List</h3>
-			  <img src="musse.png" alt="musse" height="60" width="60">
-			  <h3>Currently riding high at four subscribers</h3>
+	<!-- Navbar -->
+	<nav class="navbar navbar-default">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>                        
+				</button>
+				<a class="navbar-brand" href="#">John Wilcock</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav navbar-right">
+					<li><a href="index.html">Home</a></li>
+					<li><a class="active" href="#home">Project List</a></li>
+					<li><a href="About Me.html">About Me</a></li>
+					</ul>
 			</div>
 		</div>
+	</nav>
 
-		<div class="container-fluid bg-2 text-center">
-		  <h3>Project 1</h3>
-		  <p>Visit the About Me section to find out more!.</p>
-		</div>
+	<!-- First Container -->
+	<div class="container-fluid bg-1 text-center">
+		<h2 class="margin">Project List</h2>
+	</div>
+
+	<!-- Second Container -->
+	<div class="container-fluid bg-2 text-left">
+			<ul>
+					<li><a href="strings.html">Strings</a></li>
+					<li><a href="strings1&2.html">More Strings</a></li>
+					<li><a href="triples.html">Triples</a></li>
+					<li><a href="functionsandevents.html">Functions and Events</a></li>
+					<li><a href="iteration.html">Iteration</a></li>
+					<li><a href="dom.html">DOM</a></li>
+					<li><a href="fizzbuzz.html">FizzBuzz</a></li>
+					<li><a href="JSON1.html">Super Hero Squad</a></li>
+					<li><a href="JSON2.html">King Search</a></li>
+					<li><a href="garage.html">Garage</a></li>
+					<li><a href="knightsadventure.html">Knight Tour (under construction)</a></li>
+				</ul>
+				<p>To return back to this page, please click the back button on your browser.</p>
+	</div>
+	
+
+	<!-- Footer -->
+	<footer class="container-fluid bg-4 text-center">
+		<p><a href="http://consulting.qa.com/">QA Consulting</a></p> 
+	</footer>
 
 	</body>
 </html>
