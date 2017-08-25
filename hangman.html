@@ -15,8 +15,7 @@
             <br>
             <img src="hangmanimages/hangman0.png" id="hangmanImage" class="img-responsive margin" width="200" height="200" alt="Image">
             <br>
-            <p id="lives"></p>
-            <br>            
+            <p id="lives"></p> 
             Incorrect Guesses:
             <p id="guesses"></p>
             </h3>
@@ -28,7 +27,45 @@
 
 <script>
 
-    let words = ["memes","snooker","cat","card"]
+    let totalwords =[]
+
+    let words = ["ability","able",
+                    "above",
+                    "accept",
+                    "according",
+                    "account",
+                    "arrive",
+                    "art",
+                    "article",
+                    "artist",
+                    "bag",
+                    "ball",
+                    "camera",
+                    "campaign",
+                    "can",
+                    "candidate",
+                    "capital",
+                    "car",
+                    "card",
+                    "ground",
+                    "group",
+                    "grow",
+                    "growth",
+                    "guess",
+                    "gun",
+                    "guy",
+                    "interesting",
+                    "international",
+                    "memes",
+                    "myself",
+                    "name",
+                    "tomorrow",
+                    "yet",
+                    "you",
+                    "young",
+                    "your",
+                    "yourself"]
+
     let chosenWord
     let wordLines = []
     
@@ -37,6 +74,8 @@
     
     function createGame(){
 
+        console.log(words.length)
+        
         //chooses a random word
         var ranNum = Math.floor((Math.random() * words.length) + 0)
         chosenWord = words[ranNum]
@@ -46,6 +85,7 @@
         }
         document.getElementById("phrase").innerHTML = wordLines.join("");
         document.getElementById("lives").innerHTML = "Lives left: 7";
+        document.getElementById("winPhrase").innerHTML = "";
 
     }
 
@@ -76,13 +116,22 @@
 
         if(char != ''){
 
-                if(notFound){
-                    incorrectguesses.push(char)
-                    incorrectCount = incorrectCount + 1
+            if(notFound){
+                incorrectguesses.push(char)
+                incorrectCount = incorrectCount + 1
+                if(incorrectCount === 7){
+                    document.getElementById("hangmanImage").src="hangmanimages/hangman7.png";
+                    document.getElementById("guesses").innerHTML = incorrectguesses.join(", ");
+                    document.getElementById("lives").innerHTML = "Lives left: " +(7 - incorrectCount);
+                    document.getElementById("winPhrase").innerHTML = "Better luck next time!";
+
+                }
+                else{
                     document.getElementById("hangmanImage").src="hangmanimages/hangman"+incorrectCount+".png";
                     document.getElementById("guesses").innerHTML = incorrectguesses.join(", ");
                     document.getElementById("lives").innerHTML = "Lives left: " +(7 - incorrectCount);
-
+                }
+    
             }
         }
         else alert("Please input a character")
@@ -110,14 +159,11 @@
         for(let i = 0; i < wordLines.length;i++){
             if(wordLines[i] === '_')
             {
-                break;
+                return;
             }
-            else{
-
-                document.getElementById("winPhrase").innerHTML = "Winner winner chicken dinner";
-
-            }
+            
         }
+        document.getElementById("winPhrase").innerHTML = "Winner winner chicken dinner!";
     }
 
     function ClearField() {
