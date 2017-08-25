@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html>
+    <body onload="createGame()">
+
+            <h1>Hangman</h1>
+
+            <button onclick="createGame()">Start New Game</button>
+            <br><br>
+            Enter a character:
+            <input type="text" name="Char" id="temp_char" size = "5">
+            <button onclick="mainGame(temp_char.value);ClearField()">Enter</button>
+
+            <h3>
+            <p id="phrase"></p>
+            <br>
+            <img src="hangmanimages/hangman0.png" id="hangmanImage" class="img-responsive margin" width="200" height="200" alt="Image">
+            <br>
+            <p id="lives"></p>
+            <br>            
+            Incorrect Guesses:
+            <p id="guesses"></p>
+            </h3>
+            <h2>
+            <p id="winPhrase"></p>
+            </h2>
+    </body>
+</html>
+
+<script>
+
+    let words = ["memes","snooker","cat","card"]
+    let chosenWord
+    let wordLines = []
+    
+    let incorrectguesses = []
+    let incorrectCount = 0
+    
+    function createGame(){
+
+        //chooses a random word
+        var ranNum = Math.floor((Math.random() * words.length) + 0)
+        chosenWord = words[ranNum]
+        
+        for(let i = 0;i < chosenWord.length;i++){
+            wordLines[i] = '_'
+        }
+        document.getElementById("phrase").innerHTML = wordLines.join("");
+        document.getElementById("lives").innerHTML = "Lives left: 7";
+
+    }
+
+    String.prototype.replaceAt=function(index, replacement) {
+        return this.substr(0, index) + replacement+ this.substr(index + replacement.length);
+    }
+
+    function mainGame(char){
+
+        let splitWord = chosenWord.split('')
+        let foundPositions = []
+        let notFound = true
+
+        //find all matching positions
+        for(let i =0;i < splitWord.length;i++)
+        {
+            if(char === ''){
+                break
+            }else{
+                if(char === splitWord[i])
+                {
+                    notFound = false
+                    foundPositions.push(i)
+                }
+            }
+            
+        }
+
+        if(char != ''){
+
+                if(notFound){
+                    incorrectguesses.push(char)
+                    incorrectCount = incorrectCount + 1
+                    document.getElementById("hangmanImage").src="hangmanimages/hangman"+incorrectCount+".png";
+                    document.getElementById("guesses").innerHTML = incorrectguesses.join(", ");
+                    document.getElementById("lives").innerHTML = "Lives left: " +(7 - incorrectCount);
+
+            }
+        }
+        else alert("Please input a character")
+        
+        //loop through word lines
+        for(let i = 0; i < wordLines.length;i++)
+        {
+            //check each word line index against found positions
+            for(let j =0; j < foundPositions.length;j++)
+            {
+                //if i matches a number in the found positions
+                if(i === foundPositions[j]){
+                    wordLines[i] = char
+                    winCheck()
+                }
+            }
+        }
+        document.getElementById("phrase").innerHTML = wordLines.join("");
+    
+    }
+
+    function winCheck()
+    {
+        //checks for a win
+        for(let i = 0; i < wordLines.length;i++){
+            if(wordLines[i] === '_')
+            {
+                break;
+            }
+            else{
+
+                document.getElementById("winPhrase").innerHTML = "Winner winner chicken dinner";
+
+            }
+        }
+    }
+
+    function ClearField() {
+        document.getElementById("temp_char").value = "";
+    }
+
+</script>
